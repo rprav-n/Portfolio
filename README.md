@@ -1,8 +1,17 @@
 # Portfolio Website
-###### This is my personal porfolio website where I'll be posting my works and blog
+###### This is my personal porfolio website where I'll be posting my works and writtings.
 > Here's the link - [rpraveen.pythonanywhere.com](https://pythonanywhere.com)
 
-// Image
+## Screenshots 
+
+Light Mode 🔆:
+
+<img src="https://raw.githubusercontent.com/rpraveen-in/Portfolio/master/screenshots/screenshot_2.png"/>
+
+Dark Mode 🌙:
+
+<img src="https://raw.githubusercontent.com/rpraveen-in/Portfolio/master/screenshots/screenshot_3.png"/>
+
 
 ## Requirements  (Prerequisites)
 * Python 3.7 [Install](https://www.python.org/downloads/)
@@ -26,7 +35,6 @@ Image
 
 **Step 5**: Run the server - `python manage.py runserver`
 
-## Screenshots 
 
 ## Tech Stack
 * Python 3.7
@@ -35,10 +43,10 @@ Image
 
 ## Learn More
 To learn more about Django, take a look at the following resources:
-* [Django](https://docs.djangoproject.com/en/4.1/) - Learn about django
-* [Python](https://docs.python.org/3.7/tutorial/) - Python tutorial
+* [Django](https://docs.djangoproject.com/en/4.1/) - Learn about django.
+* [Python](https://docs.python.org/3.7/tutorial/) - Python tutorial.
 
 ## Deployed on PythonAnywhere
-The easy way to host and deploy your django apps is to use [pythonanywhere](https://www.pythonanywhere.com)
+The easy way to host and deploy your django apps is to use [pythonanywhere](https://www.pythonanywhere.com).
 
-Check out the [pythonanywhere documentation](https://help.pythonanywhere.com/pages/DeployExistingDjangoProject/) for more details
+Check out the [pythonanywhere documentation](https://help.pythonanywhere.com/pages/DeployExistingDjangoProject/) for more details.
