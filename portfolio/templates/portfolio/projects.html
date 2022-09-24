@@ -1,0 +1,24 @@
+{% extends "portfolio/base.html" %}
+{% block content %}
+
+<div class="projects-container">
+    <div class="projects-header">
+        <h1>Projects</h1>
+        <p>These are some of my main projects which I've build. Some are Mobile Apps, Python projects which include code snippets and github link.</p>
+        {% if not projects %}
+            <h2 class="no-data">(No projects available)</h1>    
+        {% endif %}
+        
+    </div>
+    <div class="projects">
+        {% for project in projects %}
+            <div>
+                <a href="{% url 'project-detail' project.id %}" class="single-project">
+                    <img src="{{ project.image }}" alt="">
+                </a>
+                <h4>{{project.title}}</h4>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}

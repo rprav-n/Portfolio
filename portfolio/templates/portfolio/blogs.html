@@ -1,0 +1,52 @@
+{% extends "portfolio/base.html" %}
+{% load mathfilters %}
+{% load static %}
+
+{% block content %}
+<div class="blogs-container">
+    <div class="blogs-header">
+        <h1>Blogs</h1>
+        <p>Learn more and get better in programming using this list of blog posts, tutorials, tips, and tricks.</p>
+    </div>
+    <div class="search-bar">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="input search-input">
+                <input name="searchText" type="text" 
+                placeholder="Search for articles by tag" 
+                value={{ text|default:"" }}>
+                <button type="submit" class="btn">
+                    Search
+                </button>
+            </div>
+        </form>
+    </div>
+    {% if not blogs %}
+            <h2 class="no-data">(No blogs available)</h1>    
+        {% endif %}
+    <div class="blogs">
+        {% for blog in blogs %}
+        <div class="single-blog">
+            <div class="line"></div>
+            <div class="single-blog-title">
+                <h1>
+                    <a href="{% url 'blog-detail' blog.id %}">{{ blog.title }}</a>
+                </h1>
+                <h2>{{ blog.content|wordcount|intdiv:100|add:1}} min read</p>
+            </div>
+            <div class="single-blog-author">
+                <img src="{% static 'portfolio/images/me.jpeg' %}" alt="">
+                <div>Praveen / {{ blog.date_posted|date:"F d, Y" }}</div>
+                <div class="blog-tags">
+                    <div class="tag">{{ blog.tag }}</div>
+                </div>
+            </div>
+            <p >{{ blog.content|safe|truncatechars:200 }}</p>
+            <div class="read-more-btn">
+                <a href="{% url 'blog-detail' blog.id %}">Read more</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <br>
+    {% endblock content %}

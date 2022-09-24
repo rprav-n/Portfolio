@@ -1,0 +1,32 @@
+{% extends "portfolio/base.html" %}
+{% load static %}
+{% load mathfilters %}
+{% block content %}
+<div class="blog-container">
+	<a class="back-btn" href="{% url 'all-blogs' %}">
+		<i class="far fa-chevron-left"></i>
+		<p>Back</p>
+	</a>
+    <div class="blog-header">
+        <h1>{{ blog.title }}</h1>
+        <div class="single-blog-author sba">
+        	<div class="blog-author">
+				<img src="{% static 'portfolio/images/me.jpeg' %}" alt="">
+            	<div>Praveen / {{ blog.date_posted|date:"F d, Y" }}</div>        		
+            	<div class="blog-tags">
+                	<div class="tag">{{ blog.tag }}</div>
+            	</div>
+        	</div>
+
+        	<div>
+        		{{ blog.content|wordcount|intdiv:100|add:1}} min read</p>
+        	</div>
+        </div>
+    </div>
+
+    <div class="blog-content">
+    	{{ blog.content|safe }}
+    </div>
+
+</div>
+{% endblock content %}

@@ -1,0 +1,142 @@
+{% load static %}
+{% url 'home' as home_url %}
+{% url 'about' as about_url %}
+{% url 'contact' as contact_url %}
+{% url 'all-blogs' as blogs_url %}
+{% url 'all-projects' as projects_url %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'portfolio/styles/main.css' %}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.3.1/highlight.min.js"></script>
+
+    <!-- and it's easy to individually load additional languages -->
+    <link id="theme-css" rel="stylesheet">
+    <script >
+        hljs.initHighlightingOnLoad();
+    </script>
+    <!-- Fontawesome -->
+    <link href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" rel="stylesheet">
+    <script defer src="{% static 'portfolio/scripts/app.js' %}"></script>
+    <link rel="shortcut icon" type="image/png" href="{% static 'portfolio/images/favicon.png' %}">
+    <title>Praveen | Software Engineer</title>
+</head>
+
+
+<body id="body">
+    <div class="banner">
+        <a href="https://www.getrevue.co/profile/rpraveen" target="_blank">Subscribe</a> <div> to my newsletter.</div>
+    </div>
+    <div class="container">
+        <!-- Navbar -->
+        {% include "portfolio/navbar.html" %}
+        {% block content %}
+        {% endblock content %}
+        {% include "portfolio/footer.html" %}
+    </div>
+    <div class="mobile-nav">
+        {% if request.path == home_url %}
+            <div>
+                <a class="link-border" href="{% url 'home' %}">
+                    <div class="box"></div>
+                    <div><i class="fal fa-home"></i></div>
+                    <div>Home</div>
+                </a>
+            </div>
+        {% else %}
+            <div>
+                <a href="{% url 'home' %}">
+                    <div class="box box-hidden"></div>
+                    <div><i class="fal fa-home"></i></div>
+                    <div>Home</div>
+                </a>
+            </div>
+        {% endif %}
+
+        {% if request.path == about_url %}
+            <div>
+                <a class="link-border" href="{% url 'about' %}">
+                    <div class="box"></div>
+                    <div><i class="fal fa-user-alt"></i></div>
+                    <div>About</div>
+                </a>
+            </div>
+        {% else %}
+            <div>
+                <a href="{% url 'about' %}">
+                    <div class="box box-hidden"></div>
+                    <div><i class="fal fa-user-alt"></i></div>
+                    <div>About</div>
+                </a>
+            </div>
+        {% endif %}
+
+        {% if request.path == projects_url or "/projects/" in request.path %}
+            <div>
+                <a class="link-border" href="{% url 'all-projects' %}">
+                    <div class="box"></div>
+                    <div><i class="fal fa-lightbulb"></i></div>
+                    <div>Projects</div>
+                </a>
+            </div>
+        {% else %}
+            <div>
+                <a href="{% url 'all-projects' %}">
+                    <div class="box box-hidden"></div>
+                    <div><i class="fal fa-lightbulb"></i></div>
+                    <div>Projects</div>
+                </a>
+            </div>
+        {% endif %}
+
+
+        {% if request.path == blogs_url or "/blogs/" in request.path %}
+            <div>
+                <a class="link-border" href="{% url 'all-blogs' %}">
+                    <div class="box"></div>
+                    <div><i class="fal fa-blog"></i></div>
+                    <div>Blogs</div>
+                </a>
+            </div>
+        {% else %}
+            <div>
+                <a href="{% url 'all-blogs' %}">
+                    <div class="box box-hidden"></div>
+                    <div><i class="fal fa-blog"></i></div>
+                    <div>Blogs</div>
+                </a>
+            </div>
+        {% endif %}
+
+        {% if request.path == contact_url %}
+            <div>
+                <a class="link-border" href="{% url 'contact' %}">
+                    <div class="box"></div>
+                    <div><i class="fal fa-mobile"></i></div>
+                    <div>Contact</div>
+                </a>
+            </div>
+        {% else %}
+            <div>
+            <a href="{% url 'contact' %}">
+                <div class="box box-hidden"></div>
+                <div><i class="fal fa-mobile"></i></div>
+                <div>Contact</div>
+            </a>
+        </div>
+        {% endif %}  
+        
+        
+        <!-- <div class="burger">
+            <a>
+                <div><i class="fal fa-hamburger"></i></div>
+                <div>Menu</div>
+            </a>
+        </div> -->
+    </div>
+</body>
+
+</html>

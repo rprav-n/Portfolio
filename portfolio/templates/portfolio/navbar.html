@@ -1,0 +1,58 @@
+{% url 'home' as home_url %}
+{% url 'about' as about_url %}
+{% url 'contact' as contact_url %}
+
+{% url 'all-blogs' as blogs_url %}
+{% url 'all-projects' as projects_url %}
+
+
+<nav>
+	<div class="logo">
+		Praveen
+	</div>
+	<div class="nav-links">
+		{% if request.path == home_url %}
+			<div><a class="link-bg" href="{% url 'home' %}">Home</a></div>	
+		{% else %}
+			<div><a href="{% url 'home' %}">Home</a></div>	
+		{% endif %}
+
+		{% if request.path == about_url %}
+			<div><a class="link-bg" href="{% url 'about' %}">About</a></div>	
+		{% else %}
+			<div><a href="{% url 'about' %}">About</a></div>	
+		{% endif %}
+
+		{% if request.path == projects_url or "/projects/" in request.path %}
+			<div><a class="link-bg" href="{% url 'all-projects' %}">Projects</a></div>
+		{% else %}
+			<div><a href="{% url 'all-projects' %}">Projects</a></div>	
+		{% endif %}
+
+		{% if request.path == blogs_url or "/blogs/" in request.path %}
+			<div><a class="link-bg" href="{% url 'all-blogs' %}">Blogs</a></div>
+		{% else %}
+			<div><a href="{% url 'all-blogs' %}">Blogs</a></div>
+		{% endif %}
+
+		{% if request.path == contact_url %}
+			<div><a class="link-bg" href="{% url 'contact' %}">Contact</a></div>
+		{% else %}
+			<div><a href="{% url 'contact' %}">Contact</a></div>
+		{% endif %}
+		
+		
+	</div>
+	<div class="nav-right">
+		<div class="light-dark-btn" title="Toggle light/dark mode">
+			<i class="far fa-moon"></i>
+		</div>
+		<div class="burger main-burger">
+			<div class="line1"></div>
+			<div class="line2"></div>
+			<div class="line3"></div>
+		</div>
+
+	</div>
+	
+</nav>
