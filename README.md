@@ -1,6 +1,6 @@
 # Portfolio Website
 ###### This is my personal porfolio website where I'll be posting my works and writtings.
-> Here's the link - [rpraveen.pythonanywhere.com](https://pythonanywhere.com)
+> Here's the link - [rpraveen.pythonanywhere.com](https://rpraveen.pythonanywhere.com)
 
 ## Screenshots 
 
